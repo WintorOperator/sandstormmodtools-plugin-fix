@@ -1,0 +1,16 @@
+# Private working notes for me and Claude -- not part of the published tool
+CLAUDE.md
+
+# Local test scaffolding / scratch
+/testbed/
+/scratch/
+
+# Never commit a real user's backup
+PluginManifestBackup/
+
+# Windows / editor noise
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/

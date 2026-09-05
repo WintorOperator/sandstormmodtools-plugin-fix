@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Batch files must keep CRLF endings on checkout -- cmd.exe can misparse
+# LF-only scripts. The .bat files also embed a PowerShell payload that is
+# split out at runtime, so their line endings matter.
+*.bat text eol=crlf
