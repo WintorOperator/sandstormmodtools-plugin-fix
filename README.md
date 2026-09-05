@@ -8,7 +8,7 @@ Two double-clickable `.bat` files.
 
 ## The error
 
-Enable a stock plugin — Movie Render Queue, for example — and the editor refuses to load it:
+Enable a stock plugin e.g. Movie Render Queue and relaunching the editor it refuses to load it resulting in a crash:
 
 > **Missing Modules**
 >
