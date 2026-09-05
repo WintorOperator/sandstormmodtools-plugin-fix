@@ -2,7 +2,7 @@
 
 Fixes the **Missing Modules** error that stops most stock Unreal plugins from being enabled in the Insurgency: Sandstorm Mod Tools editor. Present since **mod tools update 1.17**.
 
-Two double-clickable `.bat` files. No install, no dependencies, no admin rights.
+Two double-clickable `.bat` files.
 
 ---
 
