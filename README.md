@@ -1,4 +1,4 @@
-# Sandstorm Mod Tools — Plugin Module Fix
+# Insurgency: Sandstorm Mod Tools - Plugin Module Fix
 
 Fixes the **Missing Modules** error that stops most stock Unreal plugins from being enabled in the Insurgency: Sandstorm Mod Tools editor. Present since **mod tools update 1.17**.
 
@@ -28,7 +28,7 @@ Building through an IDE is not an option: the mod tools ship without the source 
 
 ## The cause
 
-Nothing is actually missing. Every plugin folder contains a small text file, `UE4Editor.modules`, listing the DLLs that plugin provides and stamped with a `BuildId` identifying the build that produced them:
+Nothing is actually missing. Every plugin folder in `SandstormEditor\Engine\Plugins` contains a small text file, `UE4Editor.modules`, listing the DLLs that plugin provides and stamped with a `BuildId` identifying the build that produced them:
 
 ```json
 {
@@ -40,9 +40,9 @@ Nothing is actually missing. Every plugin folder contains a small text file, `UE
 }
 ```
 
-The editor compares that stamp against its own in `Engine\Binaries\Win64\UE4Editor.modules`. If they differ it **discards the entire manifest** and never looks at the DLLs sitting beside it — so it reports those modules as missing.
+The editor compares that stamp against its own in `SandstormEditor\Engine\Binaries\Win64\UE4Editor.modules`. If they differ it discards the entire manifest and never looks at the DLLs sitting beside it so it reports those modules as missing and causes the mod tools to crash.
 
-The editor and its plugins were built in two separate passes, leaving two different `BuildId` values on disk. On a stock 1.17 install, **267 of 372 plugin manifests carry the wrong one**. The DLLs themselves are present, complete, and compiled against this exact engine.
+The editor and its plugins were likely built in two separate passes, leaving two different `BuildId` values on disk and since update 1.17 install the majority of plugin manifests carry the wrong one.
 
 ## The fix
 
@@ -75,7 +75,7 @@ The target `BuildId` is **read from your own editor at runtime** — no GUID is 
 
 It reports what it found, then asks two questions:
 
-- **Back up the plugin manifests?** — copies all 372 files (~70 KB) to `SandstormEditor\PluginManifestBackup\`. Say **Y**. If a backup already exists it keeps it rather than overwriting, so your undo is never lost.
+- **Back up the plugin manifests?** — copies all the `UE4Editor.modules` files to `SandstormEditor\PluginManifestBackup\`. Say **Y**. If a backup already exists it keeps it rather than overwriting, so your undo is never lost.
 - **Apply the fix?** — rewrites the mismatched build IDs, then re-reads every file from disk and prints a before/after comparison.
 
 A successful run ends with:
@@ -96,7 +96,7 @@ Double-click **`RestoreSandstormPlugins.bat`**. It shows the build IDs held in y
 ## Notes
 
 - **This does not add compile support.** It only unlocks plugins whose binaries already exist on disk. The mod tools ship without the Editor and Developer source trees.
-- **A mod tools update may undo it.** If NWI replaces the manifests, the error returns — run the fix again.
+- **A mod tools update may undo it.** If NWI replaces the manifests, the error returns so run the fix again.
 - Both `.bat` files are plain text; the whole PowerShell script is embedded and readable in Notepad. Nothing is downloaded at runtime.
 
 More information about issues with the Insurgency: Sandstorm - Mod Tools & Editor can be found here:
