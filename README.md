@@ -105,3 +105,11 @@ https://mod.io/g/insurgencysandstorm/r/sandstorm-editor-mod-tools-common-issues-
 ## Requirements
 - Windows 10/11 with PowerShell 5.1 and above
 - Insurgency: Sandstorm - Mod Tools & Editor: https://store.epicgames.com/p/insurgency-sandstorm--mod-tools
+
+---
+
+## Support this work
+
+This fix is free and always will be. It came out of the work I do on **Sandstorm 1944** — if it saved you a headache and you'd like to help that continue, you can buy me a coffee:
+
+<a href="https://ko-fi.com/sandstormmod"><img src="docs/ko-fi-button.png" width="159" height="30" alt="Support me on Ko-fi"></a>
