@@ -98,3 +98,10 @@ Double-click **`RestoreSandstormPlugins.bat`**. It shows the build IDs held in y
 - **This does not add compile support.** It only unlocks plugins whose binaries already exist on disk. The mod tools ship without the Editor and Developer source trees.
 - **A mod tools update may undo it.** If NWI replaces the manifests, the error returns — run the fix again.
 - Both `.bat` files are plain text; the whole PowerShell script is embedded and readable in Notepad. Nothing is downloaded at runtime.
+
+More information about issues with the Insurgency: Sandstorm - Mod Tools & Editor can be found here:
+https://mod.io/g/insurgencysandstorm/r/sandstorm-editor-mod-tools-common-issues-troubleshooting-guide
+
+## Requirements
+- Windows 10/11 with PowerShell 5.1 and above
+- Insurgency: Sandstorm - Mod Tools & Editor: https://store.epicgames.com/p/insurgency-sandstorm--mod-tools
